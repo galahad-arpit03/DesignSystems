@@ -1,4 +1,4 @@
-# getdesign.md — Design System Inspirations
+# getdesign — Design System Inspirations
 
 A premium, retro-modern gallery of design system inspirations from popular websites. Browse through curated designs, filter by category, and find the perfect inspiration for your next project.
 
@@ -43,4 +43,5 @@ npm start
 This project is configured for easy deployment on **Vercel**.
 
 ---
+
 Maintained by Arpit.

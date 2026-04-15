@@ -22,7 +22,7 @@ export const PrivacyContent = () => {
         <section>
           <h2 className="text-xl font-bold text-white mb-2 font-mono">1. Overview</h2>
           <p>
-            getdesign.md ("the Service") is operated by the VoltAgent team. This Privacy Policy explains what data we collect, how we use it, and your rights regarding your personal information.
+            getdesign ("the Service") is operated by the VoltAgent team. This Privacy Policy explains what data we collect, how we use it, and your rights regarding your personal information.
           </p>
         </section>
 
@@ -32,7 +32,7 @@ export const PrivacyContent = () => {
             <div>
               <h3 className="text-white font-bold mb-2">2.1 Browsing the Directory (Free)</h3>
               <p>
-                When you browse the free DESIGN.md directory, we collect minimal analytics data through Google Analytics, including page views, approximate location (country level), browser type, and device type. No personally identifiable information is collected during browsing.
+                When you browse the free design directory, we collect minimal analytics data through Google Analytics, including page views, approximate location (country level), browser type, and device type. No personally identifiable information is collected during browsing.
               </p>
             </div>
             <div>
@@ -42,10 +42,10 @@ export const PrivacyContent = () => {
               </p>
             </div>
             <div>
-              <h3 className="text-white font-bold mb-2">2.3 Requesting a DESIGN.md (Paid)</h3>
-              <p>When you submit a "Request a DESIGN.md" form, we collect:</p>
+              <h3 className="text-white font-bold mb-2">2.3 Requesting a design (Paid)</h3>
+              <p>When you submit a "Request a design" form, we collect:</p>
               <ul className="list-disc pl-5 mt-2 space-y-1 text-[#888]">
-                <li><span className="text-white">Email address</span> — to deliver the generated DESIGN.md files.</li>
+                <li><span className="text-white">Email address</span> — to deliver the generated design files.</li>
                 <li><span className="text-white">Website URL</span> — to know which website to analyze.</li>
                 <li><span className="text-white">Additional details</span> — any extra context you provide (optional).</li>
               </ul>
@@ -63,7 +63,7 @@ export const PrivacyContent = () => {
         <section>
           <h2 className="text-xl font-bold text-white mb-4 font-mono">4. How We Use Your Data</h2>
           <ul className="list-disc pl-5 space-y-2">
-            <li>To deliver the DESIGN.md files you requested to your email address.</li>
+            <li>To deliver the design files you requested to your email address.</li>
             <li>To communicate with you about your request if needed (e.g., clarification, delivery status).</li>
             <li>To improve the Service through anonymous, aggregated analytics.</li>
             <li>To maintain your saved designs if you have an account.</li>
