@@ -4,24 +4,30 @@ import React from 'react';
 
 export const PrivacyContent = () => {
   return (
-    <main className="flex-grow max-w-4xl mx-auto px-6 py-20 lg:py-32">
-      <h1 className="text-3xl md:text-5xl font-bold text-accent-pink font-pixel-circle mb-4 opacity-0 animate-[fade-up_0.6s_cubic-bezier(0.16,1,0.3,1)_forwards]">
-        Privacy Policy
-      </h1>
-      <p className="text-[#555] font-pixel-grid text-sm mb-16 opacity-0 animate-[fade-up_0.6s_cubic-bezier(0.16,1,0.3,1)_0.1s_forwards]">
-        Last updated: April 8, 2026
-      </p>
+    <main className="flex-grow pt-8 lg:pt-10 pb-20">
+      <div className="border-b border-border-color pb-6 mb-8">
+        <div className="max-w-4xl mx-auto px-6">
+          <h1 className="text-[18px] sm:text-[24px] font-semibold text-[#FFB1EE] font-pixel tracking-[-0.24px] leading-[28.8px] opacity-0 animate-[fade-up_0.6s_cubic-bezier(0.16,1,0.3,1)_forwards]">
+            Privacy Policy
+          </h1>
+        </div>
+      </div>
 
-      <div className="space-y-12 text-[#aaa] leading-relaxed opacity-0 animate-[fade-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.2s_forwards]">
+      <div className="max-w-4xl mx-auto px-6">
+        <p className="text-[#555] font-pixel-grid text-sm mb-8 opacity-0 animate-[fade-up_0.6s_cubic-bezier(0.16,1,0.3,1)_0.1s_forwards]">
+          Last updated: April 8, 2026
+        </p>
+
+      <div className="space-y-8 text-[#aaa] text-sm lg:text-base leading-relaxed opacity-0 animate-[fade-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.2s_forwards]">
         <section>
-          <h2 className="text-xl font-bold text-white mb-4 font-mono">1. Overview</h2>
+          <h2 className="text-xl font-bold text-white mb-2 font-mono">1. Overview</h2>
           <p>
             getdesign.md ("the Service") is operated by the VoltAgent team. This Privacy Policy explains what data we collect, how we use it, and your rights regarding your personal information.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-white mb-4 font-mono">2. Data We Collect</h2>
+          <h2 className="text-xl font-bold text-white mb-2 font-mono">2. Data We Collect</h2>
           <div className="space-y-8">
             <div>
               <h3 className="text-white font-bold mb-2">2.1 Browsing the Directory (Free)</h3>
@@ -113,7 +119,6 @@ export const PrivacyContent = () => {
             We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated date. Continued use of the Service after changes constitutes acceptance of the updated policy.
           </p>
         </section>
-
         <section>
           <h2 className="text-xl font-bold text-white mb-4 font-mono">10. Contact</h2>
           <p>
@@ -121,6 +126,7 @@ export const PrivacyContent = () => {
           </p>
         </section>
       </div>
-    </main>
-  );
+    </div>
+  </main>
+);
 };

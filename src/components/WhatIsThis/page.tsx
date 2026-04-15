@@ -5,30 +5,35 @@ import { whatIsThisContent } from './data';
 
 export const WhatIsThisContent = () => {
   return (
-    <main className="flex-grow max-w-4xl mx-auto px-6 py-20 lg:py-32">
-      <h1 className="text-3xl md:text-5xl font-bold text-accent-pink font-pixel-circle mb-8 opacity-0 animate-[fade-up_0.6s_cubic-bezier(0.16,1,0.3,1)_forwards]">
-        {whatIsThisContent.title}
-      </h1>
+    <main className="flex-grow pt-8 lg:pt-10 pb-20">
+      <div className="border-b border-border-color pb-6 mb-8">
+        <div className="max-w-4xl mx-auto px-6">
+          <h1 className="text-[18px] sm:text-[24px] font-semibold text-[#FFB1EE] font-pixel tracking-[-0.24px] leading-[28.8px] opacity-0 animate-[fade-up_0.6s_cubic-bezier(0.16,1,0.3,1)_forwards]">
+            {whatIsThisContent.title}
+          </h1>
+        </div>
+      </div>
       
-      <p className="text-[#aaa] text-lg lg:text-xl leading-relaxed mb-16 opacity-0 animate-[fade-up_0.6s_cubic-bezier(0.16,1,0.3,1)_0.1s_forwards]">
-        {whatIsThisContent.intro}
-      </p>
+      <div className="max-w-4xl mx-auto px-6">
+        <p className="text-[#aaa] text-base lg:text-lg leading-relaxed mb-12 opacity-0 animate-[fade-up_0.6s_cubic-bezier(0.16,1,0.3,1)_0.1s_forwards]">
+          {whatIsThisContent.intro}
+        </p>
 
-      <div className="space-y-20 opacity-0 animate-[fade-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.2s_forwards]">
+      <div className="space-y-10 opacity-0 animate-[fade-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.2s_forwards]">
         {whatIsThisContent.sections.map((section) => (
           <section key={section.id} id={section.id} className="scroll-mt-32">
-            <h2 className="text-2xl font-bold text-white mb-6 font-mono flex items-center gap-3">
-              <span className="text-accent-pink">/</span> {section.title}
+            <h2 className="text-xl font-bold text-white mb-4 font-mono">
+              {section.title}
             </h2>
             
-            <div className="space-y-4 text-[#888] leading-relaxed">
+            <div className="space-y-3 text-[#aaa] text-sm lg:text-base leading-relaxed">
               {section.content?.map((p, idx) => (
                 <p key={idx}>{p}</p>
               ))}
             </div>
 
             {section.subsections && (
-              <div className="mt-12 space-y-16">
+              <div className="mt-8 space-y-8">
                 {section.subsections.map((sub, sIdx) => (
                   <div key={sIdx} className="border-l-2 border-[#1a1a1a] pl-6 py-2">
                     <h3 className="text-lg font-bold text-white mb-4 font-mono">{sub.title}</h3>
@@ -70,6 +75,7 @@ export const WhatIsThisContent = () => {
             )}
           </section>
         ))}
+        </div>
       </div>
     </main>
   );

@@ -32,23 +32,23 @@ export const Navbar = () => {
 
   const NavLinks = () => (
     <>
-      <a href="/what-is-this" className="hover:text-accent-pink transition-colors">What is this?</a>
-      <a href="#" className="hover:text-accent-pink transition-colors">About</a>
+      <a href="/what-is-this" className="hover:text-accent-pink transition-colors text-xs uppercase tracking-wider font-semibold">What is this?</a>
+      <a href="#" className="hover:text-accent-pink transition-colors text-xs uppercase tracking-wider font-semibold">About</a>
     </>
   );
 
   const GithubButton = () => (
     <button
       onClick={handleGithubClick}
-      className="flex items-center bg-[#1a1a1a] border border-[#333] rounded-md overflow-hidden cursor-pointer group hover:border-[#555] transition-colors h-9"
+      className="flex items-center bg-[#1a1a1a] border border-[#333] rounded-md overflow-hidden cursor-pointer group hover:border-[#555] transition-colors h-8"
     >
-      <div className="flex items-center gap-2 px-3 py-1.5 border-r border-[#333] group-hover:bg-[#222] transition-colors h-full">
+      <div className="flex items-center gap-2 px-3 py-1 border-r border-[#333] group-hover:bg-[#222] transition-colors h-full">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
           <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
         </svg>
         <span className="text-xs md:text-sm">Star</span>
       </div>
-      <div className="px-3 py-1.5 text-[#FFD700] bg-black font-mono tabular-nums text-xs md:text-sm h-full flex items-center min-w-[3ch] justify-center">
+      <div className="px-2.5 py-1 text-[#FFD700] bg-black font-mono tabular-nums text-xs h-full flex items-center min-w-[3ch] justify-center">
         {isHydrated ? displayCount() : <span className="opacity-0">0</span>}
       </div>
     </button>
@@ -56,23 +56,23 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="flex justify-between items-center py-4 px-6 md:px-8 border-b border-border-color sticky top-0 bg-black/80 backdrop-blur-md z-[100]">
-        <div className="flex items-center gap-6 lg:gap-10">
-          <a href="/" className="logo font-bold text-xl font-mono text-white hover:opacity-80 transition-opacity cursor-pointer">
-            get<span className="text-accent-pink">design</span>
+      <nav className="flex justify-between items-center py-4 px-8 md:px-14 lg:px-20 border-b border-border-color sticky top-0 bg-black/80 backdrop-blur-md z-[100]">
+        <div className="flex items-center gap-4 lg:gap-6">
+          <a href="/" className="logo font-bold text-lg font-mono text-white hover:opacity-80 transition-opacity cursor-pointer">
+            De<span className="text-accent-pink">sign</span>
           </a>
           <div className="hidden lg:block">
-            <a href="#" className="bg-accent-pink text-black py-2 px-4 rounded-lg font-bold shadow-[0_0_10px_rgba(255,97,210,0.3)] hover:scale-105 transition-transform whitespace-nowrap text-xs md:text-sm">
+            <a href="#" className="flex items-center justify-center bg-accent-pink text-black h-8 px-3 rounded-lg font-bold shadow-[0_0_10px_rgba(255,97,210,0.3)] hover:scale-105 transition-transform whitespace-nowrap text-[11px] uppercase tracking-wider">
               Request DESIGN
             </a>
           </div>
         </div>
 
         <div className="flex items-center gap-4 lg:gap-8">
-          <div className="hidden lg:flex items-center gap-8 text-white text-sm font-semibold">
+          <div className="hidden lg:flex items-center gap-8 text-white text-xs font-semibold">
             <NavLinks />
             <GithubButton />
-            <button className="bg-white text-black px-4 py-2 rounded-md font-bold hover:bg-gray-200 transition-colors text-sm">Sign in</button>
+            <button className="flex items-center justify-center bg-white text-black h-8 px-3 rounded-md font-bold hover:bg-gray-200 transition-colors text-xs">Sign in</button>
           </div>
 
           <button 
