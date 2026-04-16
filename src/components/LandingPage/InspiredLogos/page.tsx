@@ -32,9 +32,9 @@ export const InspiredLogos = () => {
         </div>
         <div className="grid grid-cols-2 gap-4">
           {[
-            { name: 'SpaceX', icon: '/logos/spacex.svg' },
-            { name: 'IBM', icon: '/logos/ibm.svg' },
-            { name: 'Lamborghini', icon: '/logos/lamborghini.svg' },
+            { name: logos[0].name, icon: logos[0].icon },
+            { name: logos[1].name, icon: logos[1].icon },
+            { name: logos[2].name, icon: logos[2].icon },
             { name: 'Feature your brand?', icon: null }
           ].map((item, i) => (
             <div key={i} className={`flex items-center gap-3 p-4 border border-[#111] rounded-xl bg-black ${!item.icon ? 'border-dashed border-[#222]' : ''}`}>

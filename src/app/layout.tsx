@@ -11,6 +11,8 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar/page";
 import { Footer } from "@/components/Footer/page";
 
+import { Providers } from "@/components/Providers";
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -37,13 +39,15 @@ export default function RootLayout({
         className={`${inter.variable} ${jetbrainsMono.variable} ${GeistPixelSquare.variable} ${GeistPixelGrid.variable} ${GeistPixelCircle.variable} ${GeistPixelTriangle.variable} ${GeistPixelLine.variable} antialiased font-sans bg-black text-white`}
         suppressHydrationWarning
       >
-        <div className="min-h-screen flex flex-col">
-          <Navbar />
-          <main className="flex-grow">
-            {children}
-          </main>
-          <Footer />
-        </div>
+        <Providers>
+          <div className="min-h-screen flex flex-col">
+            <Navbar />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </Providers>
       </body>
     </html>
   );

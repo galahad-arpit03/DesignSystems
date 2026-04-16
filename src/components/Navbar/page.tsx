@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useSession, signOut } from 'next-auth/react';
 
 const GITHUB_URL = 'https://github.com/galahad-arpit03';
 const STORAGE_KEY = 'github_star_count';
@@ -54,6 +55,43 @@ export const Navbar = () => {
     </button>
   );
 
+  const AuthButton = ({ isMobile = false, closeMenu = () => {} }: { isMobile?: boolean, closeMenu?: () => void }) => {
+    const { data: session } = useSession();
+
+    if (session) {
+      return (
+        <div className={`flex items-center gap-4 ${isMobile ? 'flex-col w-full' : ''}`}>
+          <a
+            href="/saved"
+            onClick={closeMenu}
+            className={`${isMobile ? 'w-full py-3 h-auto text-sm' : 'h-8 text-xs px-3'} flex items-center justify-center bg-[#111] border border-[#222] text-white rounded-md font-bold hover:bg-[#222] transition-colors`}
+          >
+            Saved
+          </a>
+          <button 
+            onClick={() => {
+              signOut();
+              closeMenu();
+            }}
+            className={`${isMobile ? 'w-full py-3 h-auto text-sm' : 'h-8 text-xs px-3'} flex items-center justify-center bg-white text-black rounded-md font-bold hover:bg-gray-200 transition-colors`}
+          >
+            Sign out
+          </button>
+        </div>
+      );
+    }
+
+    return (
+      <a 
+        href="/signin" 
+        className={`${isMobile ? 'w-full py-3 h-auto text-sm' : 'h-8 text-xs px-3'} flex items-center justify-center bg-white text-black rounded-md font-bold hover:bg-gray-200 transition-colors`}
+        onClick={closeMenu}
+      >
+        Sign in
+      </a>
+    );
+  };
+
   return (
     <>
       <nav className="py-4 border-b border-border-color sticky top-0 bg-black/80 backdrop-blur-md z-[100]">
@@ -77,7 +115,7 @@ export const Navbar = () => {
             <div className="hidden lg:flex items-center gap-8 text-white text-xs font-semibold">
               <NavLinks />
               <GithubButton />
-              <button className="flex items-center justify-center bg-white text-black h-8 px-3 rounded-md font-bold hover:bg-gray-200 transition-colors text-xs">Sign in</button>
+              <AuthButton />
             </div>
 
             <button 
@@ -110,12 +148,7 @@ export const Navbar = () => {
             >
               Request DESIGN
             </a>
-            <button 
-              className="bg-white text-black w-full py-3 rounded-md font-bold text-sm hover:bg-gray-200 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Sign in
-            </button>
+            <AuthButton isMobile closeMenu={() => setIsMenuOpen(false)} />
           </div>
         </div>
       </div>
