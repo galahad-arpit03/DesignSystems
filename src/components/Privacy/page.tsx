@@ -18,115 +18,140 @@ export const PrivacyContent = () => {
           Last updated: April 8, 2026
         </p>
 
-      <div className="space-y-8 text-[#aaa] text-sm lg:text-base leading-relaxed opacity-0 animate-[fade-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.2s_forwards]">
-        <section>
-          <h2 className="text-xl font-bold text-white mb-2 font-mono">1. Overview</h2>
-          <p>
-            getdesign ("the Service") is operated by the VoltAgent team. This Privacy Policy explains what data we collect, how we use it, and your rights regarding your personal information.
-          </p>
-        </section>
+        <div className="space-y-8 text-[#aaa] text-sm lg:text-base leading-relaxed opacity-0 animate-[fade-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.2s_forwards]">
+          <section>
+            <h2 className="text-xl font-bold text-white mb-4 font-mono">1. Overview</h2>
+            <p>
+              design respects your privacy. This policy explains what data is collected, how it is used, and what control you have over it.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-white mb-2 font-mono">2. Data We Collect</h2>
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-white font-bold mb-2">2.1 Browsing the Directory (Free)</h3>
-              <p>
-                When you browse the free design directory, we collect minimal analytics data through Google Analytics, including page views, approximate location (country level), browser type, and device type. No personally identifiable information is collected during browsing.
-              </p>
+          <section>
+            <h2 className="text-xl font-bold text-white mb-4 font-mono">2. Data we collect</h2>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-lg font-bold text-white mb-2 font-mono">2.1 Browsing (free)</h3>
+                <p>
+                  When you browse the platform, only basic analytics data is collected. This may include page views, general location (country level), browser type, and device type.
+                </p>
+                <p className="mt-2 text-[#888] italic">
+                  This data is anonymous and does not identify you personally.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white mb-2 font-mono">2.2 Authentication (optional)</h3>
+                <p>
+                  If you choose to sign in and save designs, your basic account information such as email or profile details is collected.
+                </p>
+                <p className="mt-2">
+                  This is only used to maintain your saved data and improve your experience.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white mb-2 font-mono">2.3 Requesting a design (paid)</h3>
+                <p>When you submit a request, the following information is collected:</p>
+                <ul className="list-disc pl-5 mt-2 space-y-1 text-[#888]">
+                  <li><span className="text-white">Email address</span> — to deliver your files</li>
+                  <li><span className="text-white">Website URL</span> — to understand what needs to be created</li>
+                  <li><span className="text-white">Additional input</span> — any optional details you provide</li>
+                </ul>
+              </div>
             </div>
-            <div>
-              <h3 className="text-white font-bold mb-2">2.2 Authentication (Optional)</h3>
-              <p>
-                If you choose to sign in to save designs, we collect your email address and/or GitHub profile information through Supabase authentication. This data is used solely to maintain your saved designs across sessions.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-white font-bold mb-2">2.3 Requesting a design (Paid)</h3>
-              <p>When you submit a "Request a design" form, we collect:</p>
-              <ul className="list-disc pl-5 mt-2 space-y-1 text-[#888]">
-                <li><span className="text-white">Email address</span> — to deliver the generated design files.</li>
-                <li><span className="text-white">Website URL</span> — to know which website to analyze.</li>
-                <li><span className="text-white">Additional details</span> — any extra context you provide (optional).</li>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-4 font-mono">3. Payments</h2>
+            <p>
+              All payments are handled securely by Stripe.
+            </p>
+            <p className="mt-2 text-[#888]">
+              No sensitive payment details like card numbers or CVV are stored on the platform.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-4 font-mono">4. How your data is used</h2>
+            <div className="space-y-2">
+              <p>Your data is used only to:</p>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>Deliver requested files</li>
+                <li>Communicate updates or clarifications</li>
+                <li>Improve the platform using aggregated analytics</li>
+                <li>Maintain your saved designs (if signed in)</li>
               </ul>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 font-mono">3. Payment Processing</h2>
-          <p>
-            All payments are processed by Stripe. We do not store your credit card number, CVV, or any sensitive payment information on our servers. Stripe handles all payment data in compliance with PCI DSS standards. Please refer to Stripe's privacy policy for details on how they handle your payment information.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 font-mono">4. How We Use Your Data</h2>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>To deliver the design files you requested to your email address.</li>
-            <li>To communicate with you about your request if needed (e.g., clarification, delivery status).</li>
-            <li>To improve the Service through anonymous, aggregated analytics.</li>
-            <li>To maintain your saved designs if you have an account.</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 font-mono">5. Data Sharing</h2>
-          <p>
-            We do not sell, rent, or share your personal data with third parties for marketing purposes. Your data is shared only with:
-          </p>
-          <ul className="list-disc pl-5 mt-4 space-y-2 text-[#888]">
-            <li><span className="text-white">Stripe</span> — for payment processing.</li>
-            <li><span className="text-white">Resend</span> — for sending transactional emails (delivery notifications).</li>
-            <li><span className="text-white">Supabase</span> — for authentication (if you sign in).</li>
-            <li><span className="text-white">Google Analytics</span> — for anonymous usage analytics.</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 font-mono">6. Data Retention</h2>
-          <p>
-            Your email address and request details are retained only for the duration necessary to fulfill your request and provide support. Analytics data is retained in anonymized, aggregated form. You may request deletion of your data at any time by contacting us.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 font-mono">7. Cookies</h2>
-          <p>
-            The Service uses cookies for authentication sessions and anonymous analytics. No advertising or tracking cookies are used. You can disable cookies in your browser settings, but this may affect the functionality of authentication features.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 font-mono">8. Your Rights</h2>
-          <div className="space-y-4">
-            <p>You have the right to:</p>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>Access the personal data we hold about you.</li>
-              <li>Request correction or deletion of your personal data.</li>
-              <li>Withdraw consent for data processing at any time.</li>
-              <li>Request a copy of your data in a portable format.</li>
-            </ul>
-            <p className="mt-4">
-              To exercise any of these rights, please contact us through GitHub Issues.
+          <section>
+            <h2 className="text-xl font-bold text-white mb-4 font-mono">5. Data sharing</h2>
+            <p>
+              Your data is not sold or used for advertising.
             </p>
-          </div>
-        </section>
+            <p className="mt-4">
+              It is only shared with essential services required to run the platform:
+            </p>
+            <ul className="list-disc pl-5 mt-4 space-y-2 text-[#888]">
+              <li><span className="text-white">Stripe</span> — payment processing</li>
+              <li><span className="text-white">Resend</span> — sending emails</li>
+              <li><span className="text-white">Supabase</span> — authentication</li>
+              <li><span className="text-white">Google Analytics</span> — anonymous usage insights</li>
+            </ul>
+          </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 font-mono">9. Changes to This Policy</h2>
-          <p>
-            We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated date. Continued use of the Service after changes constitutes acceptance of the updated policy.
-          </p>
-        </section>
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 font-mono">10. Contact</h2>
-          <p>
-            For privacy-related questions, please reach out via email.
-          </p>
-        </section>
+          <section>
+            <h2 className="text-xl font-bold text-white mb-4 font-mono">6. Data retention</h2>
+            <p>
+              Personal data is kept only as long as necessary to fulfill your request or provide support.
+            </p>
+            <p className="mt-4">
+              Analytics data is stored in an anonymized and aggregated form.
+            </p>
+            <p className="mt-4">
+              You can request deletion of your data at any time.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-4 font-mono">7. Cookies</h2>
+            <p>
+              Cookies are used for basic functionality like login sessions and analytics.
+            </p>
+            <p className="mt-4 text-[#888]">
+              No advertising or invasive tracking cookies are used. Disabling cookies may affect certain features.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-4 font-mono">8. Your rights</h2>
+            <div className="space-y-4">
+              <p>You have the right to:</p>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>Access your data</li>
+                <li>Request corrections or deletion</li>
+                <li>Withdraw consent</li>
+                <li>Request a copy of your data</li>
+              </ul>
+              <p className="mt-4">
+                To exercise these rights, you can contact us directly.
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-4 font-mono">9. Policy updates</h2>
+            <p>
+              This policy may be updated over time. Continued use of the platform means you accept the latest version.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-4 font-mono">10. Contact</h2>
+            <p>
+              For any privacy-related questions, you can reach out via email.
+            </p>
+          </section>
+        </div>
       </div>
-    </div>
-  </main>
-);
+    </main>
+  );
 };

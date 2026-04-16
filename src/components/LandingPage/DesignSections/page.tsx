@@ -116,23 +116,56 @@ export const DesignTable: React.FC<DesignTableProps> = ({ selectedCategory }) =>
 };
 
 export const Sidebar: React.FC<{ selectedCategory: string; onSelect: (cat: string) => void }> = ({ selectedCategory, onSelect }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <aside className="w-full lg:w-[260px] flex-shrink-0">
       <h2 className="text-xl font-bold mb-6 lg:mb-8 text-accent-pink font-pixel-circle">Find Designs</h2>
       
-      {/* Mobile Select */}
-      <div className="lg:hidden relative mb-6">
-        <select 
-          value={selectedCategory}
-          onChange={(e) => onSelect(e.target.value)}
-          className="w-full bg-[#0a0a0a] text-white border border-[#222] py-4 px-4 rounded-lg appearance-none font-medium text-sm outline-none"
-        >
-          {categories.map(cat => (
-            <option key={cat} value={cat}>{cat}</option>
-          ))}
-        </select>
-        <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[#555]">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      {/* Mobile Custom Dropdown */}
+      <div className="lg:hidden mb-6">
+        <div className="relative">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="w-full bg-[#0a0a0a] text-white border border-[#222] py-4 px-4 rounded-lg flex justify-between items-center font-medium text-sm outline-none active:scale-[0.98] transition-transform"
+          >
+            <span className="text-[#FF61D2] font-pixel-triangle text-[11px] uppercase tracking-wider mr-2">Category:</span>
+            <span>{selectedCategory}</span>
+            <div className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </button>
+
+          {isOpen && (
+            <div className="absolute top-full left-0 right-0 mt-2 bg-[#0a0a0a] border border-[#222] rounded-xl z-[150] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.5)] animate-[fade-in_0.2s_ease-out]">
+              <div className="py-2">
+                {categories.map((cat) => {
+                  const isActive = selectedCategory === cat;
+                  return (
+                    <button
+                      key={cat}
+                      onClick={() => {
+                        onSelect(cat);
+                        setIsOpen(false);
+                      }}
+                      className={`w-full text-left px-5 py-3 text-sm transition-colors border-l-2 ${
+                        isActive 
+                          ? 'bg-[#111] text-[#FF61D2] border-[#FF61D2]' 
+                          : 'text-[#666] border-transparent hover:bg-[#050505] hover:text-white'
+                      }`}
+                    >
+                      <div className="flex justify-between items-center">
+                        <span>{cat}</span>
+                        <span className={`font-mono text-[0.7rem] ${isActive ? 'text-[#FF61D2]' : 'text-[#444]'}`}>
+                          {categoryCounts[cat] ?? 0}
+                        </span>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

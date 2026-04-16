@@ -3,8 +3,8 @@ import { heroStats, featuredDesigns } from './data';
 
 export const Hero = () => {
   return (
-    <header className="relative min-h-0 lg:min-h-[75vh] flex items-center px-6 md:px-8 py-16 lg:py-20 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto w-full relative">
+    <header className="relative min-h-0 lg:min-h-[75vh] flex items-center py-16 lg:py-20 overflow-hidden">
+      <div className="max-w-[1400px] mx-auto w-full px-6 md:px-14 lg:px-20 relative">
       
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[300px] lg:w-[600px] h-[300px] lg:h-[400px] bg-[#FF61D2]/5 blur-[80px] lg:blur-[120px] rounded-full pointer-events-none" />
 

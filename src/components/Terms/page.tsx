@@ -18,78 +18,99 @@ export const TermsContent = () => {
           Last updated: April 8, 2026
         </p>
 
-      <div className="space-y-8 text-[#aaa] text-sm lg:text-base leading-relaxed opacity-0 animate-[fade-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.2s_forwards]">
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 font-mono">1. Overview</h2>
-          <p>
-            getdesign ("the Service") is operated by the VoltAgent team. By accessing or using the Service, you agree to be bound by these Terms of Service. If you do not agree, please do not use the Service.
-          </p>
-        </section>
+        <div className="space-y-8 text-[#aaa] text-sm lg:text-base leading-relaxed opacity-0 animate-[fade-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.2s_forwards]">
+          <section>
+            <h2 className="text-xl font-bold text-white mb-4 font-mono">1. Overview</h2>
+            <p>
+              design is a platform that provides access to structured design resources. By using the service, you agree to these terms. If you do not agree, please do not use the platform.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 font-mono">2. Description of Service</h2>
-          <p>
-            getdesign is a browsable directory of design files — structured markdown files that describe design systems inspired by popular websites. The Service also offers a paid "Request a design" feature where users can request a custom design, design tokens, and dark + light preview HTMLs for a specific website.
-          </p>
-        </section>
+          <section>
+            <h2 className="text-xl font-bold text-white mb-4 font-mono">2. What the service offers</h2>
+            <p>
+              design provides a browsable collection of design files — structured markdown documents that define UI patterns such as colors, typography, spacing, components, and layout.
+            </p>
+            <p className="mt-4">
+              The platform also includes a paid feature where you can request a custom design along with design tokens and preview files.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 font-mono">3. Free Content</h2>
-          <p>
-            All design files available in the public directory are free to browse, download, and use in your projects. These files are provided "as is" without warranty of any kind. They are curated starting points inspired by publicly visible design patterns and are not official design systems from the listed companies.
-          </p>
-        </section>
+          <section>
+            <h2 className="text-xl font-bold text-white mb-4 font-mono">3. Free content</h2>
+            <p>
+              All publicly available design files can be used freely in your projects.
+            </p>
+            <p className="mt-4">
+              These files are provided as-is, without guarantees. They are meant to serve as starting points and references for building interfaces, not as official or complete design systems.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 font-mono">4. Paid Service — Request a design</h2>
-          <div className="space-y-4">
-            <p>The "Request a design" feature is a paid digital product. By purchasing, you agree to the following:</p>
-            <ul className="list-disc pl-5 space-y-2 text-[#888]">
-              <li><span className="text-white">Price:</span> $29 per request, charged via Stripe at the time of purchase.</li>
-              <li><span className="text-white">Delivery:</span> The generated design, design tokens, and preview HTML files will be delivered to the email address you provide within 1–2 business days.</li>
-              <li><span className="text-white">Digital product:</span> Since this is a digital product delivered via email, all sales are final. No refunds will be issued once the design has been delivered.</li>
-              <li><span className="text-white">Refund exception:</span> If we are unable to generate a design for the requested website (e.g., the site is behind a login wall or unavailable), you will receive a full refund.</li>
-            </ul>
-          </div>
-        </section>
+          <section>
+            <h2 className="text-xl font-bold text-white mb-4 font-mono">4. Paid feature — Request a design</h2>
+            <div className="space-y-4">
+              <p>When purchasing a custom design:</p>
+              <ul className="list-disc pl-5 space-y-2 text-[#888]">
+                <li><span className="text-white">Pricing:</span> Rs.49 per request</li>
+                <li><span className="text-white">Delivery:</span> Files are sent to your email within 1–2 business days</li>
+                <li><span className="text-white">What you receive:</span> A structured design, design tokens, and preview files</li>
+              </ul>
+              <p className="mt-4">
+                Since this is a digital product, all purchases are final once delivered.
+              </p>
+              <p>
+                If a request cannot be fulfilled (for example, due to access restrictions or unavailable sources), a full refund will be issued.
+              </p>
+            </div>
+          </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 font-mono">5. Intellectual Property</h2>
-          <p>
-            All trademarks, brand names, logos, and design elements referenced in design files belong to their respective owners. getdesign does not claim ownership of any third-party intellectual property. The design files document publicly observable design patterns for educational and development purposes.
-          </p>
-        </section>
+          <section>
+            <h2 className="text-xl font-bold text-white mb-4 font-mono">5. Intellectual property</h2>
+            <p>
+              All brand names, logos, and design references belong to their respective owners.
+            </p>
+            <p className="mt-4">
+              design does not claim ownership of any third-party assets. The content is based on publicly observable patterns and is intended for learning and development purposes.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 font-mono">6. User Responsibilities</h2>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>You must provide a valid email address when requesting a paid design.</li>
-            <li>You must not use the Service for any unlawful purpose.</li>
-            <li>You are responsible for how you use the generated design files in your own projects.</li>
-          </ul>
-        </section>
+          <section>
+            <h2 className="text-xl font-bold text-white mb-4 font-mono">6. Your responsibilities</h2>
+            <div className="space-y-4">
+              <p>By using the platform, you agree to:</p>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>Provide accurate information when making a request</li>
+                <li>Use the service in a lawful manner</li>
+                <li>Take responsibility for how you apply the provided design files</li>
+              </ul>
+            </div>
+          </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 font-mono">7. Limitation of Liability</h2>
-          <p>
-            The Service is provided "as is" and "as available" without warranties of any kind, express or implied. We do not guarantee that design files will be error-free, complete, or suitable for any particular purpose. In no event shall getdesign or its operators be liable for any indirect, incidental, or consequential damages arising from the use of the Service.
-          </p>
-        </section>
+          <section>
+            <h2 className="text-xl font-bold text-white mb-4 font-mono">7. Limitation of liability</h2>
+            <p>
+              The service is provided without warranties of any kind.
+            </p>
+            <p className="mt-4">
+              We do not guarantee that the content will always be accurate, complete, or suitable for your specific needs. We are not liable for any damages resulting from the use of the platform.
+            </p>
+          </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 font-mono">8. Changes to Terms</h2>
-          <p>
-            We reserve the right to update these Terms at any time. Changes will be posted on this page with an updated date. Continued use of the Service after changes constitutes acceptance of the new Terms.
-          </p>
-        </section>
-        <section>
-          <h2 className="text-xl font-bold text-white mb-4 font-mono">9. Contact</h2>
-          <p>
-            For questions about these Terms, please reach out via email.
-          </p>
-        </section>
+          <section>
+            <h2 className="text-xl font-bold text-white mb-4 font-mono">8. Updates to these terms</h2>
+            <p>
+              These terms may be updated from time to time. Continued use of the platform means you accept the latest version.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-white mb-4 font-mono">9. Contact</h2>
+            <p>
+              If you have any questions, you can reach out via email.
+            </p>
+          </section>
+        </div>
       </div>
-    </div>
-  </main>
-);
+    </main>
+  );
 };

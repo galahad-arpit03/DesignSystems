@@ -8,8 +8,10 @@ export const InspiredLogos = () => {
   return (
     <div className="border-y border-border-color bg-black overflow-hidden relative">
       {/* Desktop Marquee */}
-      <div className="hidden md:flex max-w-[1400px] mx-auto items-stretch font-mono text-[0.75rem] md:text-[0.7rem] text-text-secondary uppercase tracking-tight">
-        <div className="flex items-center px-4 md:px-8 py-3 border-r border-border-color font-bold flex-shrink-0 bg-black z-10 relative shadow-[10px_0_15px_rgba(0,0,0,0.5)]">
+      <div className="hidden md:flex max-w-[1400px] mx-auto items-stretch font-mono text-[0.75rem] md:text-[0.7rem] text-text-secondary uppercase tracking-tight px-6 md:px-14 lg:px-20">
+        <div className="flex items-center px-4 md:px-8 py-3 border-r border-border-color font-bold flex-shrink-0 bg-black z-30 relative shadow-[20px_0_30px_rgba(0,0,0,0.8)]">
+          {/* Mask for wide screens to prevent logos from appearing to the left */}
+          <div className="absolute right-full top-0 bottom-0 w-[100vw] bg-black z-30" />
           <span className="hidden md:inline">DESIGN SYSTEMS INSPIRED FROM:</span>
           <span className="md:hidden">INSPIRED BY:</span>
         </div>
