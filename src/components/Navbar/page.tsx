@@ -58,6 +58,7 @@ export const Navbar = () => {
   const AuthButton = ({ isMobile = false, closeMenu = () => {} }: { isMobile?: boolean, closeMenu?: () => void }) => {
     const { data: session } = useSession();
 
+
     if (session) {
       return (
         <div className={`flex items-center gap-4 ${isMobile ? 'flex-col w-full' : ''}`}>
