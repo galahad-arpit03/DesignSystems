@@ -42,8 +42,10 @@ export const Hero = () => {
         </div>
 
         <div className="hidden lg:block opacity-0 animate-[fade-in_1s_ease_0.6s_forwards] relative lg:-left-12 max-w-[280px] lg:max-w-none mx-auto lg:mx-0">
-  <img src="/hero/hero.png" alt="Hero illustration" className="w-full h-auto object-cover rounded-lg" />
-</div>
+          <div className="animate-float">
+            <img src="/hero/hero.png" alt="Hero illustration" className="w-full h-auto object-cover)]" />
+          </div>
+        </div>
 
       </div>
       </div>
