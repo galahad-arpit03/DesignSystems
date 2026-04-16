@@ -14,7 +14,7 @@ export const TermsContent = () => {
       </div>
 
       <div className="max-w-4xl mx-auto px-6">
-        <p className="text-[#555] font-pixel-grid text-sm mb-8 opacity-0 animate-[fade-up_0.6s_cubic-bezier(0.16,1,0.3,1)_0.1s_forwards]">
+        <p className="text-[#888] font-pixel-grid text-sm mb-8 opacity-0 animate-[fade-up_0.6s_cubic-bezier(0.16,1,0.3,1)_0.1s_forwards]">
           Last updated: April 8, 2026
         </p>
 

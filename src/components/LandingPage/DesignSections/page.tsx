@@ -46,25 +46,25 @@ export const DesignTable: React.FC<DesignTableProps> = ({ selectedCategory }) =>
           className="w-full bg-transparent py-3 text-[#666] text-sm outline-none font-mono placeholder-[#444]"
         />
       </div>
-
-      <div className="grid grid-cols-[1.5fr_3fr_1fr_1fr] py-3 border-b border-[#222] text-[0.65rem] font-mono lowercase text-[#444] min-w-[600px] lg:min-w-0">
-        <span># Design Systems</span>
-        <span className="text-right sm:text-left"></span>
-        <span className="text-right flex items-center justify-end gap-1">Installs</span>
-        <span className="text-right flex items-center justify-end gap-1">Bookmarked</span>
+      <div className="grid grid-cols-1 md:grid-cols-[1.5fr_3fr_1fr_1fr] py-3 border-b border-[#222] text-[0.65rem] font-mono lowercase text-[#444] min-w-0">
+        <span className="hidden md:inline"># Design Systems</span>
+        <span className="md:hidden"># Design Systems</span>
+        <span className="hidden md:inline text-right sm:text-left"></span>
+        <span className="hidden md:flex items-center justify-end gap-1 text-right">Installs</span>
+        <span className="hidden md:flex items-center justify-end gap-1 text-right">Bookmarked</span>
       </div>
 
-      <div className="mt-0 overflow-x-auto lg:overflow-x-visible -mx-4 px-4 lg:mx-0 lg:px-0">
-        <div className="min-w-[600px] lg:min-w-0">
+      <div className="mt-0 overflow-x-auto lg:overflow-x-visible -mx-4 px-4 lg:mx-0 lg:px-0 no-scrollbar">
+        <div className="min-w-0 w-full">
           {paginatedDesigns.map((item: Design) => (
-            <div key={item.name} className="grid grid-cols-[1.5fr_3fr_1fr_1fr] py-4 border-b border-[#111] items-center group hover:bg-[#111] transition-all px-2 -mx-2">
+            <div key={item.name} className="grid grid-cols-[1fr_auto] md:grid-cols-[1.5fr_3fr_1fr_1fr] py-4 border-b border-[#111] items-center group hover:bg-[#111] transition-all px-2 md:-mx-2">
               <div className="flex items-center gap-3">
-                <img src={item.logo} className="w-6 h-6 rounded bg-[#1a1a1a] p-1 invert opacity-80" alt={item.name} />
-                <span className="font-bold text-white text-sm">{item.name}</span>
+                <img src={item.logo} className="w-8 h-8 md:w-6 md:h-6 rounded bg-[#1a1a1a] p-1 invert opacity-80" alt={item.name} />
+                <span className="font-bold text-white text-[15px] md:text-sm">{item.name}</span>
               </div>
-              <div className="text-[#666] text-xs pr-4 line-clamp-1">{item.desc}</div>
-              <div className="text-[#666] font-mono text-xs text-right pr-2">{item.installs}</div>
-              <div className="text-[#666] font-mono text-xs text-right pr-2">{item.bookmarked}</div>
+              <div className="hidden md:block text-[#666] text-xs pr-4 line-clamp-1">{item.desc}</div>
+              <div className="hidden md:block text-[#666] font-mono text-xs text-right pr-2">{item.installs}</div>
+              <div className="hidden md:block text-[#666] font-mono text-xs text-right pr-2">{item.bookmarked}</div>
             </div>
           ))}
         </div>
@@ -118,22 +118,40 @@ export const DesignTable: React.FC<DesignTableProps> = ({ selectedCategory }) =>
 export const Sidebar: React.FC<{ selectedCategory: string; onSelect: (cat: string) => void }> = ({ selectedCategory, onSelect }) => {
   return (
     <aside className="w-full lg:w-[260px] flex-shrink-0">
-      <h2 className="text-lg lg:text-xl font-bold mb-6 lg:mb-8 text-accent-pink font-pixel-circle">Find Designs</h2>
-      <ul className="list-none flex lg:flex-col overflow-x-auto lg:overflow-x-visible pb-4 lg:pb-0 gap-2 lg:space-y-1 no-scrollbar -mx-4 px-4 lg:mx-0 lg:px-0">
+      <h2 className="text-xl font-bold mb-6 lg:mb-8 text-accent-pink font-pixel-circle">Find Designs</h2>
+      
+      {/* Mobile Select */}
+      <div className="lg:hidden relative mb-6">
+        <select 
+          value={selectedCategory}
+          onChange={(e) => onSelect(e.target.value)}
+          className="w-full bg-[#0a0a0a] text-white border border-[#222] py-4 px-4 rounded-lg appearance-none font-medium text-sm outline-none"
+        >
+          {categories.map(cat => (
+            <option key={cat} value={cat}>{cat}</option>
+          ))}
+        </select>
+        <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[#555]">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+      </div>
+
+      {/* Desktop Sidebar */}
+      <ul className="hidden lg:flex flex-col space-y-1">
         {categories.map((cat) => {
           const isActive = selectedCategory === cat;
           return (
             <li
               key={cat}
               onClick={() => onSelect(cat)}
-              className={`flex justify-between items-center py-2 px-4 lg:py-2.5 lg:px-3 cursor-pointer transition-all text-[0.75rem] lg:text-[0.8rem] font-medium group whitespace-nowrap lg:whitespace-normal border ${
+              className={`flex justify-between items-center py-2.5 px-3 cursor-pointer transition-all text-[0.8rem] font-medium group border ${
                 isActive
-                  ? 'border-[#eee] text-white bg-[#111] lg:bg-transparent'
+                  ? 'border-[#eee] text-white'
                   : 'text-[#666] border-transparent hover:text-[#aaa]'
               }`}
             >
               <span>{cat}</span>
-              <span className={`hidden lg:inline font-mono text-[0.7rem] ${isActive ? 'text-white' : 'text-[#444]'}`}>
+              <span className={`font-mono text-[0.7rem] ${isActive ? 'text-white' : 'text-[#444]'}`}>
                 {categoryCounts[cat] ?? 0}
               </span>
             </li>

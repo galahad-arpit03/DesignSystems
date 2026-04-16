@@ -56,35 +56,37 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="flex justify-between items-center py-4 px-8 md:px-14 lg:px-20 border-b border-border-color sticky top-0 bg-black/80 backdrop-blur-md z-[100]">
-        <div className="flex items-center gap-4 lg:gap-6">
-          <a href="/" className="logo font-bold text-lg font-mono text-white hover:opacity-80 transition-opacity cursor-pointer">
-            De<span className="text-accent-pink">sign</span>
-          </a>
-          <div className="hidden lg:block">
-            <a href="#" className="flex items-center justify-center bg-accent-pink text-black h-8 px-3 rounded-lg font-bold shadow-[0_0_10px_rgba(255,97,210,0.3)] hover:scale-105 transition-transform whitespace-nowrap text-[11px] uppercase tracking-wider">
-              Request DESIGN
+      <nav className="py-4 px-6 md:px-14 lg:px-20 border-b border-border-color sticky top-0 bg-black/80 backdrop-blur-md z-[100]">
+        <div className="max-w-[1400px] mx-auto w-full flex justify-between items-center">
+          <div className="flex items-center gap-4 lg:gap-6">
+            <a href="/" className="logo font-bold text-lg font-mono text-white hover:opacity-80 transition-opacity cursor-pointer">
+              De<span className="text-accent-pink">sign</span>
             </a>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-4 lg:gap-8">
-          <div className="hidden lg:flex items-center gap-8 text-white text-xs font-semibold">
-            <NavLinks />
-            <GithubButton />
-            <button className="flex items-center justify-center bg-white text-black h-8 px-3 rounded-md font-bold hover:bg-gray-200 transition-colors text-xs">Sign in</button>
+            <div className="hidden lg:block">
+              <a href="#" className="flex items-center justify-center bg-accent-pink text-black h-8 px-3 rounded-lg font-bold shadow-[0_0_10px_rgba(255,97,210,0.3)] hover:scale-105 transition-transform whitespace-nowrap text-[11px] uppercase tracking-wider">
+                Request DESIGN
+              </a>
+            </div>
           </div>
 
-          <button 
-            className="lg:hidden text-white p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            ) : (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            )}
-          </button>
+          <div className="flex items-center gap-4 lg:gap-8">
+            <div className="hidden lg:flex items-center gap-8 text-white text-xs font-semibold">
+              <NavLinks />
+              <GithubButton />
+              <button className="flex items-center justify-center bg-white text-black h-8 px-3 rounded-md font-bold hover:bg-gray-200 transition-colors text-xs">Sign in</button>
+            </div>
+
+            <button 
+              className="lg:hidden text-white p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              ) : (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+              )}
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -95,18 +97,25 @@ export const Navbar = () => {
             <GithubButton />
           </div>
           
-          <div className="flex flex-col gap-6 text-2xl font-bold italic tracking-tight">
-            <a href="#" className="hover:text-accent-pink transition-colors" onClick={() => setIsMenuOpen(false)}>Request DESIGN</a>
+          <div className="flex flex-col gap-6 text-lg font-bold italic tracking-tight">
             <a href="/what-is-this" className="hover:text-accent-pink transition-colors" onClick={() => setIsMenuOpen(false)}>What is this?</a>
             <a href="#" className="hover:text-accent-pink transition-colors" onClick={() => setIsMenuOpen(false)}>About</a>
           </div>
 
-          <button 
-            className="mt-4 bg-white text-black w-full py-4 rounded-md font-bold text-lg hover:bg-gray-200 transition-colors"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Sign in
-          </button>
+          <div className="w-full flex flex-col gap-3 mt-4">
+            <button 
+              className="bg-accent-pink text-black w-full py-3 rounded-md font-bold text-sm uppercase tracking-wider hover:scale-[1.02] transition-transform"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Request DESIGN
+            </button>
+            <button 
+              className="bg-white text-black w-full py-3 rounded-md font-bold text-sm hover:bg-gray-200 transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Sign in
+            </button>
+          </div>
         </div>
       </div>
     </>
