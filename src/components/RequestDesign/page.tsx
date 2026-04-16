@@ -85,7 +85,7 @@ export const RequestDesignForm = () => {
 
             <button
               type="submit"
-              className="w-full bg-accent-pink text-black font-bold py-3 px-4 rounded-lg text-xs sm:text-sm hover:translate-y-[-1px] active:translate-y-[1px] transition-all shadow-[0_5px_15px_rgba(255,97,210,0.2)]"
+              className="w-full bg-accent-pink text-black font-bold py-3 px-4 rounded-lg text-xs sm:text-sm hover:translate-y-[-1px] active:translate-y-[1px] transition-all shadow-[0_5px_15px_rgba(255,97,210,0.2)] cursor-pointer"
             >
               Proceed to Payment (Rs. 49)
             </button>

@@ -64,7 +64,7 @@ export const Navbar = () => {
           <a
             href="/saved"
             onClick={closeMenu}
-            className={`${isMobile ? 'w-full py-3 h-auto text-sm' : 'h-8 text-xs px-3'} flex items-center justify-center bg-[#111] border border-[#222] text-white rounded-md font-bold hover:bg-[#222] transition-colors`}
+            className={`${isMobile ? 'w-full py-3 h-auto text-sm' : 'h-8 text-xs px-3'} flex items-center justify-center bg-[#111] border border-[#222] text-white rounded-md font-bold hover:bg-[#222] transition-colors cursor-pointer`}
           >
             Saved
           </a>
@@ -73,7 +73,7 @@ export const Navbar = () => {
               signOut();
               closeMenu();
             }}
-            className={`${isMobile ? 'w-full py-3 h-auto text-sm' : 'h-8 text-xs px-3'} flex items-center justify-center bg-white text-black rounded-md font-bold hover:bg-gray-200 transition-colors`}
+            className={`${isMobile ? 'w-full py-3 h-auto text-sm' : 'h-8 text-xs px-3'} flex items-center justify-center bg-white text-black rounded-md font-bold hover:bg-gray-200 transition-colors cursor-pointer`}
           >
             Sign out
           </button>
@@ -84,7 +84,7 @@ export const Navbar = () => {
     return (
       <a 
         href="/signin" 
-        className={`${isMobile ? 'w-full py-3 h-auto text-sm' : 'h-8 text-xs px-3'} flex items-center justify-center bg-white text-black rounded-md font-bold hover:bg-gray-200 transition-colors`}
+        className={`${isMobile ? 'w-full py-3 h-auto text-sm' : 'h-8 text-xs px-3'} flex items-center justify-center bg-white text-black rounded-md font-bold hover:bg-gray-200 transition-colors cursor-pointer`}
         onClick={closeMenu}
       >
         Sign in
