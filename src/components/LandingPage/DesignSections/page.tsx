@@ -1,26 +1,34 @@
 'use client';
 
 import React, { useState, useMemo, useEffect } from 'react';
-import { designs, categories, categoryCounts, Design } from './data';
+import Link from 'next/link';
+import { categories } from './data';
 
 interface DesignTableProps {
   selectedCategory: string;
+  designs: any[];
 }
 
-export const DesignTable: React.FC<DesignTableProps> = ({ selectedCategory }) => {
+interface SidebarProps {
+  selectedCategory: string;
+  onSelect: (cat: string) => void;
+  categoryCounts: Record<string, number>;
+}
+
+export const DesignTable: React.FC<DesignTableProps> = ({ selectedCategory, designs }) => {
   const [search, setSearch] = useState('');
-
-  const filteredDesigns = useMemo(() => {
-    return designs.filter((design: Design) => {
-      const matchesCategory = selectedCategory === 'All' || design.category === selectedCategory;
-      const matchesSearch = design.name.toLowerCase().includes(search.toLowerCase()) ||
-                            design.desc.toLowerCase().includes(search.toLowerCase());
-      return matchesCategory && matchesSearch;
-    });
-  }, [selectedCategory, search]);
-
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 10;
+
+  const filteredDesigns = useMemo(() => {
+    return designs.filter((design) => {
+      if (!design.logo_url) return false;
+      const matchesCategory = selectedCategory === 'All' || design.category === selectedCategory;
+      const matchesSearch = design.name.toLowerCase().includes(search.toLowerCase()) ||
+                            design.tagline.toLowerCase().includes(search.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
+  }, [selectedCategory, search, designs]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -56,16 +64,20 @@ export const DesignTable: React.FC<DesignTableProps> = ({ selectedCategory }) =>
 
       <div className="mt-0 overflow-x-auto lg:overflow-x-visible -mx-4 px-4 lg:mx-0 lg:px-0 no-scrollbar">
         <div className="min-w-0 w-full">
-          {paginatedDesigns.map((item: Design) => (
-            <div key={item.name} className="grid grid-cols-[1fr_auto] md:grid-cols-[1.5fr_3fr_1fr_1fr] py-4 border-b border-[#111] items-center group hover:bg-[#111] transition-all px-2 md:-mx-2">
+          {paginatedDesigns.map((item) => (
+            <Link 
+              href={`/design/${item.slug}`}
+              key={item.id} 
+              className="grid grid-cols-[1fr_auto] md:grid-cols-[1.5fr_3fr_1fr_1fr] py-4 border-b border-[#111] items-center group hover:bg-[#080808] transition-all px-2 md:-mx-2 cursor-pointer"
+            >
               <div className="flex items-center gap-3">
-                <img src={item.logo} className="w-8 h-8 md:w-6 md:h-6 rounded bg-[#1a1a1a] p-1 invert opacity-80" alt={item.name} />
-                <span className="font-bold text-white text-[15px] md:text-sm">{item.name}</span>
+                <img src={item.logo_url} className="w-8 h-8 md:w-6 md:h-6 invert opacity-80" alt={item.name} />
+                <span className="font-bold text-white text-[15px] md:text-sm group-hover:text-accent-pink transition-colors">{item.name}</span>
               </div>
-              <div className="hidden md:block text-[#666] text-xs pr-4 line-clamp-1">{item.desc}</div>
-              <div className="hidden md:block text-[#666] font-mono text-xs text-right pr-2">{item.installs}</div>
-              <div className="hidden md:block text-[#666] font-mono text-xs text-right pr-2">{item.bookmarked}</div>
-            </div>
+              <div className="hidden md:block text-[#666] text-xs pr-4 line-clamp-1 group-hover:text-[#888] transition-colors">{item.tagline}</div>
+              <div className="hidden md:block text-[#666] font-mono text-xs text-right pr-2 group-hover:text-white transition-colors">{item.installs_count}</div>
+              <div className="hidden md:block text-[#666] font-mono text-xs text-right pr-2 group-hover:text-white transition-colors">{item.bookmarks_count}</div>
+            </Link>
           ))}
         </div>
         {filteredDesigns.length === 0 && (
@@ -75,55 +87,56 @@ export const DesignTable: React.FC<DesignTableProps> = ({ selectedCategory }) =>
         )}
       </div>
 
+      {/* Pagination */}
       {totalPages > 1 && (
-        <div className="mt-8 flex items-center justify-between border-t border-[#222] pt-6 font-mono text-[0.65rem] lowercase text-[#666]">
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-              disabled={currentPage === 1}
-              className={`hover:text-white transition-colors flex items-center gap-1 ${currentPage === 1 ? 'opacity-30 cursor-not-allowed' : ''}`}
-            >
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-              prev
-            </button>
-            <div className="flex items-center gap-2">
-              {[...Array(totalPages)].map((_, i) => (
-                <button
-                  key={i + 1}
-                  onClick={() => setCurrentPage(i + 1)}
-                  className={`w-6 h-6 flex items-center justify-center transition-all ${currentPage === i + 1 ? 'border border-[#eee] text-white' : 'hover:text-[#aaa]'}`}
-                >
-                  {i + 1}
-                </button>
-              ))}
-            </div>
-            <button
-              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-              disabled={currentPage === totalPages}
-              className={`hover:text-white transition-colors flex items-center gap-1 ${currentPage === totalPages ? 'opacity-30 cursor-not-allowed' : ''}`}
-            >
-              next
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </button>
+        <div className="mt-8 flex items-center justify-between border-t border-[#111] pt-6 font-mono text-[10px] uppercase tracking-widest">
+          <button 
+            onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+            disabled={currentPage === 1}
+            className="flex items-center gap-2 text-[#444] hover:text-white disabled:opacity-20 transition-colors py-2 px-1"
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            Prev
+          </button>
+          
+          <div className="flex items-center gap-4 text-[#444]">
+            <span className="text-white">{currentPage}</span>
+            <span className="opacity-30">/</span>
+            <span>{totalPages}</span>
           </div>
-          <div>
-            showing {Math.min(filteredDesigns.length, (currentPage - 1) * pageSize + 1)}-{Math.min(filteredDesigns.length, currentPage * pageSize)} of {filteredDesigns.length}
-          </div>
+
+          <button 
+            onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+            disabled={currentPage === totalPages}
+            className="flex items-center gap-2 text-[#444] hover:text-white disabled:opacity-20 transition-colors py-2 px-1"
+          >
+            Next
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
         </div>
       )}
     </div>
   );
 };
 
-export const Sidebar: React.FC<{ selectedCategory: string; onSelect: (cat: string) => void }> = ({ selectedCategory, onSelect }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ selectedCategory, onSelect, categoryCounts }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <aside className="w-full lg:w-[260px] flex-shrink-0">
-      <h2 className="text-xl font-bold mb-6 lg:mb-8 text-accent-pink font-pixel-circle">Find Designs</h2>
-      
-      {/* Mobile Custom Dropdown */}
-      <div className="lg:hidden mb-6">
+    <aside className="lg:sticky lg:top-24 h-fit">
+      <div className="mb-0 lg:mb-10 flex flex-col md:flex-row lg:flex-col lg:items-start md:items-center justify-between gap-6">
+        <div className="space-y-1">
+          <h2 className="text-[#FF61D2] font-pixel-triangle text-xs uppercase tracking-[0.2em] mb-4">Find Designs</h2>
+          <p className="hidden lg:block text-[#444] text-[10px] leading-relaxed uppercase tracking-widest font-mono">
+            Filter by platform or category to find the perfect starting point for your next UI.
+          </p>
+        </div>
+
+        <div className="h-px bg-[#111] w-full hidden lg:block my-4" />
+      </div>
+
+      {/* Mobile Category Dropdown */}
+      <div className="lg:hidden mb-12">
         <div className="relative">
           <button
             onClick={() => setIsOpen(!isOpen)}

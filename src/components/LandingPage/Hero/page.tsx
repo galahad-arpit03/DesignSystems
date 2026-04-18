@@ -1,7 +1,7 @@
 import React from 'react';
 import { heroStats, featuredDesigns } from './data';
 
-export const Hero = () => {
+export const Hero = ({ count = 0 }: { count?: number }) => {
   return (
     <header className="relative min-h-0 lg:min-h-[75vh] flex items-center py-16 lg:py-20 overflow-hidden">
       <div className="max-w-[1400px] mx-auto w-full px-6 md:px-14 lg:px-20 relative">
@@ -36,14 +36,14 @@ export const Hero = () => {
               Browse Designs ↓
             </a>
             <span className="text-[#aaa] text-xs font-mono">
-              {heroStats[0].value} files & counting
+              {count} files & counting
             </span>
           </div>
         </div>
 
-        <div className="hidden lg:block opacity-0 animate-[fade-in_1s_ease_0.6s_forwards] relative lg:-left-12 max-w-[280px] lg:max-w-none mx-auto lg:mx-0">
+        <div className="hidden lg:block opacity-0 animate-[fade-in_1s_ease_0.6s_forwards] relative max-w-[280px] lg:max-w-none ml-auto">
           <div className="animate-float">
-            <img src="/hero/hero.png" alt="Hero illustration" className="w-full h-auto object-cover)]" />
+            <img src="/hero/hero.png" alt="Hero illustration" className="w-full h-auto object-contain" />
           </div>
         </div>
 

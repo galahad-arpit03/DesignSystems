@@ -1,4 +1,4 @@
-# getdesign — Design System Inspirations
+# design — Design System Inspirations
 
 A premium, retro-modern gallery of design system inspirations from popular websites. Browse through curated designs, filter by category, and find the perfect inspiration for your next project.
 

@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 
+import Link from 'next/link';
+
 const GITHUB_URL = 'https://github.com/galahad-arpit03';
 const STORAGE_KEY = 'github_star_count';
 const BASE_COUNT = 0;
@@ -33,8 +35,8 @@ export const Navbar = () => {
 
   const NavLinks = () => (
     <>
-      <a href="/what-is-this" className="hover:text-accent-pink transition-colors text-xs uppercase tracking-wider font-semibold">What is this?</a>
-      <a href="/about" className="hover:text-accent-pink transition-colors text-xs uppercase tracking-wider font-semibold">About</a>
+      <Link href="/what-is-this" className="hover:text-accent-pink transition-colors text-xs uppercase tracking-wider font-semibold">What is this?</Link>
+      <Link href="/about" className="hover:text-accent-pink transition-colors text-xs uppercase tracking-wider font-semibold">About</Link>
     </>
   );
 
@@ -62,13 +64,13 @@ export const Navbar = () => {
     if (session) {
       return (
         <div className={`flex items-center gap-4 ${isMobile ? 'flex-col w-full' : ''}`}>
-          <a
+          <Link
             href="/saved"
             onClick={closeMenu}
             className={`${isMobile ? 'w-full py-3 h-auto text-sm' : 'h-8 text-xs px-3'} flex items-center justify-center bg-[#111] border border-[#222] text-white rounded-md font-bold hover:bg-[#222] transition-colors cursor-pointer`}
           >
             Saved
-          </a>
+          </Link>
           <button 
             onClick={() => {
               signOut();
@@ -83,13 +85,13 @@ export const Navbar = () => {
     }
 
     return (
-      <a 
+      <Link 
         href="/signin" 
         className={`${isMobile ? 'w-full py-3 h-auto text-sm' : 'h-8 text-xs px-3'} flex items-center justify-center bg-white text-black rounded-md font-bold hover:bg-gray-200 transition-colors cursor-pointer`}
         onClick={closeMenu}
       >
         Sign in
-      </a>
+      </Link>
     );
   };
 
@@ -98,13 +100,13 @@ export const Navbar = () => {
       <nav className="py-4 border-b border-border-color sticky top-0 bg-black/80 backdrop-blur-md z-[100]">
         <div className="max-w-[1400px] mx-auto w-full px-6 md:px-14 lg:px-20 flex justify-between items-center">
           <div className="flex items-center gap-4 lg:gap-6">
-            <a href="/" className="logo font-bold text-lg font-mono text-white hover:opacity-80 transition-opacity cursor-pointer">
+            <Link href="/" className="logo font-bold text-lg font-mono text-white hover:opacity-80 transition-opacity cursor-pointer">
               De<span className="text-accent-pink">sign</span>
-            </a>
+            </Link>
             <div className="hidden lg:block">
-              <a href="/request" className="flex items-center justify-center bg-accent-pink text-black h-8 px-3 rounded-lg font-bold shadow-[0_0_10px_rgba(255,97,210,0.3)] hover:scale-105 transition-transform whitespace-nowrap text-[11px] uppercase tracking-wider">
+              <Link href="/request" className="flex items-center justify-center bg-accent-pink text-black h-8 px-3 rounded-lg font-bold shadow-[0_0_10px_rgba(255,97,210,0.3)] hover:scale-105 transition-transform whitespace-nowrap text-[11px] uppercase tracking-wider">
                 Request DESIGN
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -137,8 +139,8 @@ export const Navbar = () => {
       <div className={`lg:hidden fixed inset-0 bg-black z-[90] transition-all duration-300 ease-in-out ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'}`}>
         <div className="flex flex-col items-start gap-8 px-8 py-24 text-white">
           <div className="flex flex-col gap-6 text-xs uppercase tracking-[0.3em] font-pixel-triangle">
-            <a href="/what-is-this" className="text-gray-400 hover:text-[#FF61D2] transition-colors" onClick={() => setIsMenuOpen(false)}>What is this?</a>
-            <a href="/about" className="text-gray-400 hover:text-[#FF61D2] transition-colors" onClick={() => setIsMenuOpen(false)}>About</a>
+            <Link href="/what-is-this" className="text-gray-400 hover:text-[#FF61D2] transition-colors" onClick={() => setIsMenuOpen(false)}>What is this?</Link>
+            <Link href="/about" className="text-gray-400 hover:text-[#FF61D2] transition-colors" onClick={() => setIsMenuOpen(false)}>About</Link>
           </div>
 
           <div className="w-full flex flex-col gap-3 mt-4">

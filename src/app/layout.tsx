@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "getdesign — Design system inspirations",
+  title: "design — Design system inspirations",
   description: "Design system inspirations from popular websites. Drop one into your project and let coding agents build matching UI.",
 };
 

@@ -1,25 +1,32 @@
 import React from 'react';
 import { logos } from './data';
 
-export const InspiredLogos = () => {
-  const doubledLogos = [...logos, ...logos];
-
+export const InspiredLogos = ({ designs = [] }: { designs?: any[] }) => {
+  const displayLogos = designs.length > 0 ? designs : [
+    { name: 'Loading...', logo_url: '' }
+  ];
+  
+  const doubledLogos = [...displayLogos, ...displayLogos];
 
   return (
-    <div className="border-y border-border-color bg-black overflow-hidden relative">
+    <div className="border-y border-[#111] bg-black overflow-hidden relative">
       {/* Desktop Marquee */}
-      <div className="hidden md:flex max-w-[1400px] mx-auto items-stretch font-mono text-[0.75rem] md:text-[0.7rem] text-text-secondary uppercase tracking-tight px-6 md:px-14 lg:px-20">
-        <div className="flex items-center px-4 md:px-8 py-3 border-r border-border-color font-bold flex-shrink-0 bg-black z-30 relative shadow-[20px_0_30px_rgba(0,0,0,0.8)]">
-          {/* Mask for wide screens to prevent logos from appearing to the left */}
+      <div className="hidden md:flex max-w-[1400px] mx-auto items-stretch font-mono text-[0.7rem] text-[#444] uppercase tracking-tight px-6 md:px-14 lg:px-20">
+        <div className="flex items-center px-4 md:px-8 py-3 border-r border-[#111] font-bold flex-shrink-0 bg-black z-30 relative">
           <div className="absolute right-full top-0 bottom-0 w-[100vw] bg-black z-30" />
-          <span className="hidden md:inline">DESIGN SYSTEMS INSPIRED FROM:</span>
-          <span className="md:hidden">INSPIRED BY:</span>
+          <span className="hidden md:inline">INSPIRED BY:</span>
         </div>
         <div className="flex items-stretch animate-marquee">
           {doubledLogos.map((logo, index) => (
-            <div key={`${logo.name}-${index}`} className="flex items-center gap-2 px-4 md:px-6 py-3 border-r border-border-color grayscale opacity-60 hover:opacity-100 hover:bg-[#050505] transition-all cursor-pointer flex-shrink-0">
-              <img src={logo.icon} className="h-[14px] md:h-[14px] invert opacity-80" alt={logo.name} /> 
-              <span>{logo.name}</span>
+            <div key={`${logo.name}-${index}`} className="flex items-center gap-2 px-6 py-3 border-r border-[#111] opacity-40 hover:opacity-100 hover:bg-[#080808] transition-all cursor-pointer flex-shrink-0 group">
+              {logo.logo_url && (
+                <img 
+                  src={logo.logo_url} 
+                  className="h-[14px] invert grayscale group-hover:invert-0 group-hover:grayscale-0 transition-all duration-300" 
+                  alt={logo.name} 
+                />
+              )} 
+              <span className="group-hover:text-white transition-colors">{logo.name}</span>
             </div>
           ))}
         </div>
@@ -27,28 +34,14 @@ export const InspiredLogos = () => {
 
       {/* Mobile Featured Designs Grid */}
       <div className="md:hidden px-6 py-10">
-        <div className="flex items-center gap-2 text-[10px] font-mono text-[#555] uppercase tracking-widest mb-8">
-          <span className="text-accent-pink">▶</span> FEATURED DESIGNS
+        <div className="flex items-center gap-2 text-[10px] font-mono text-[#333] uppercase tracking-widest mb-8">
+          <span className="text-accent-pink">▶</span> FEATURED
         </div>
         <div className="grid grid-cols-2 gap-4">
-          {[
-            { name: logos[0].name, icon: logos[0].icon },
-            { name: logos[1].name, icon: logos[1].icon },
-            { name: logos[2].name, icon: logos[2].icon },
-            { name: 'Feature your brand?', icon: null }
-          ].map((item, i) => (
-            <div key={i} className={`flex items-center gap-3 p-4 border border-[#111] rounded-xl bg-black ${!item.icon ? 'border-dashed border-[#222]' : ''}`}>
-              {item.icon ? (
-                <>
-                  <img src={item.icon} className="w-5 h-5 invert opacity-80" alt="" />
-                  <span className="text-xs font-bold text-white">{item.name}</span>
-                </>
-              ) : (
-                <div className="flex items-center gap-3">
-                  <span className="text-[#333] font-mono">?</span>
-                  <span className="text-[10px] italic text-[#444] leading-tight">{item.name}</span>
-                </div>
-              )}
+          {displayLogos.slice(0, 4).map((item, i) => (
+            <div key={item.id || i} className="flex items-center gap-3 p-4 border border-[#111] rounded-xl bg-black">
+              {item.logo_url && <img src={item.logo_url} className="w-5 h-5 invert opacity-80" alt="" />}
+              <span className="text-xs font-bold text-white leading-none">{item.name}</span>
             </div>
           ))}
         </div>

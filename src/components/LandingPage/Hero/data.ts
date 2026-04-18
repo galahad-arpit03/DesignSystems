@@ -1,6 +1,6 @@
 export const heroStats = [
-  { label: "design Files", value: "66", color: true },
-  { label: "Last Updated", value: "Apr 14, 2026", color: true },
+  { label: "design Files", value: "23", color: true },
+  { label: "Last Updated", value: "Apr 17, 2026", color: true },
 ];
 
 export const featuredDesigns = [
