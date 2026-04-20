@@ -18,12 +18,12 @@ Browse the [Design Library](https://designbyarpit.vercel.app) to explore 60+ des
 Download any design system directly into your project root using the custom CLI:
 
 ```bash
-npx getdesign@latest add [slug]
+npx design.md@latest add [slug]
 ```
 
 **Example:**
 ```bash
-npx getdesign@latest add airbnb
+npx design.md@latest add airbnb
 ```
 This command downloads a `Design.md` file containing every detail (colors, spacing, font rules) of the selected system. Once downloaded, you can simply tell your AI assistant: *"Use Design for UI work."*
 

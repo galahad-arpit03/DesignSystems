@@ -5,12 +5,12 @@ const https = require('https');
 const http = require('http');
 
 const args = process.argv.slice(2);
-const isAdd = args.includes('add');
+const command = args[0];
 const isLocal = args.includes('--local') || args.includes('-l');
 const slug = args.find((arg, index) => index > 0 && args[index-1] === 'add');
 
-if (!isAdd || !slug) {
-  console.log('Usage: npx getdesign@latest add <slug> [--local]');
+if (command !== 'add' || !slug) {
+  console.log('Usage: npx design.md@latest add <slug> [--local]');
   console.log('Options:');
   console.log('  --local, -l    Use localhost:3000 instead of production');
   process.exit(1);

@@ -1,5 +1,5 @@
 {
-  "name": "getdesign",
+  "name": "design.md",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
     "design": "node bin/design.js"
   },
   "bin": {
-    "design": "bin/design.js"
+    "design.md": "bin/design.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.103.3",
