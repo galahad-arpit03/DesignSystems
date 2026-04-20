@@ -78,7 +78,7 @@ export const DesignDetail: React.FC<DesignDetailProps> = ({ design }) => {
                 </div>
               </div>
               <p className="text-[#333] text-[9px] font-mono tracking-tighter uppercase">
-                Run this command from your project root, then ask your AI assistant to use DESIGN.md for UI work.
+                Run this command from your project root, then ask your AI assistant to use Design for UI work.
               </p>
 
               <div className="text-[#555] text-xs leading-relaxed max-w-2xl mt-12 pt-8 border-t border-[#111]">
@@ -131,11 +131,11 @@ export const DesignDetail: React.FC<DesignDetailProps> = ({ design }) => {
                 Live Preview
               </button>
               <button 
-                onClick={() => setActiveTab('DESIGN.md')}
-                className={`px-3 py-1.5 rounded-lg flex items-center gap-2 transition-all ${activeTab === 'DESIGN.md' ? 'bg-[#1a1a1a] text-white' : 'text-[#444] hover:text-[#666]'}`}
+                onClick={() => setActiveTab('Design')}
+                className={`px-3 py-1.5 rounded-lg flex items-center gap-2 transition-all ${activeTab === 'Design' ? 'bg-[#1a1a1a] text-white' : 'text-[#444] hover:text-[#666]'}`}
               >
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                DESIGN.md
+                Design
               </button>
               <div className="w-px h-4 bg-[#222] mx-1" />
               <div className="flex bg-black border border-[#222] rounded-lg overflow-hidden">

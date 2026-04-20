@@ -1,12 +1,16 @@
 {
-  "name": "dnt",
-  "version": "0.1.0",
+  "name": "getdesign",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "design": "node bin/design.js"
+  },
+  "bin": {
+    "design": "bin/design.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.103.3",

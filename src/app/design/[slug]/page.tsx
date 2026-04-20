@@ -23,9 +23,9 @@ const extractFonts = (markdown: string) => {
 const InternalSiteHeader = ({ logoUrl, name, theme, displayFont }: { logoUrl: string, name: string, theme: 'light' | 'dark', displayFont: string }) => (
   <div className={`px-6 py-3 border-b flex items-center justify-between transition-colors ${theme === 'dark' ? 'bg-[#1a1a1a] border-white/10 text-white' : 'bg-white border-[#eee] text-black'}`}>
     <div className="flex items-center gap-4">
-      <span className="font-bold text-xs tracking-tight font-mono uppercase tracking-[0.2em]">getdesign.md</span>
+      <span className="font-bold text-xs tracking-tight font-mono uppercase tracking-[0.2em]">Design</span>
       <div className={`hidden sm:flex items-center gap-2 px-2 py-0.5 rounded-full border text-[9px] font-medium ${theme === 'dark' ? 'bg-white/5 border-white/10 text-white/40' : 'bg-black/5 border-black/5 text-black/40'}`}>
-         awesome-design-md
+         awesome-design
       </div>
     </div>
     
@@ -65,7 +65,7 @@ const LivePreview = ({ design, theme }: { design: any, theme: 'light' | 'dark' }
            Design System <br/><span className="opacity-30">Inspired by</span> {design.name}
          </h1>
          <p className="text-sm md:text-base opacity-50 mb-10 max-w-lg leading-relaxed font-medium">
-           A design token catalog generated from DESIGN.md. Every color, font, component, and spacing value — visualized.
+           A design token catalog generated from Design. Every color, font, component, and spacing value — visualized.
          </p>
          <div className="flex flex-wrap items-center justify-center gap-3">
             <button 
@@ -155,7 +155,6 @@ export default function DesignDetailPage() {
                  </div>
                  <h1 className="text-xl md:text-3xl font-bold tracking-tight font-mono lowercase">
                     {design.name}
-                    <span className="text-white/20">.md</span>
                  </h1>
               </div>
               <p className="text-white/40 text-xs md:text-sm font-medium tracking-wide max-w-xl">{design.tagline}</p>
@@ -175,7 +174,7 @@ export default function DesignDetailPage() {
            <div className="space-y-4 flex flex-col">
               <div className="text-[10px] font-bold uppercase tracking-widest text-white/20">Installation</div>
               <div className="flex-grow p-5 bg-[#0a0a0a] border border-white/5 rounded-xl flex items-center justify-between group">
-                 <code className="text-[11px] md:text-xs font-mono text-[#FF61D2]">{`npx getdesign@latest add ${design.slug}`}</code>
+                 <code className="text-[11px] md:text-xs font-mono text-[#FF61D2]">{`npx design@latest add ${design.slug}`}</code>
                  <button onClick={handleCopy} className="text-white/20 hover:text-white transition-colors">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
                  </button>
@@ -218,7 +217,7 @@ export default function DesignDetailPage() {
                      onClick={() => setView('markdown')}
                      className={`px-3 py-1.5 rounded-md text-[9px] font-bold uppercase tracking-widest flex items-center gap-2 transition-all ${view === 'markdown' ? 'bg-white/10 text-white shadow-sm' : 'text-white/30 hover:text-white'}`}
                     >
-                      DESIGN.md
+                      Design
                     </button>
                  </div>
 
